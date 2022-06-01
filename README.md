@@ -43,30 +43,32 @@ The sum of squared absolute values is defined as
 
 <!-- Package usage documentation. -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/stats-iter-sumabs2
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
+To use in Observable,
+
 ```javascript
-var itersumabs2 = require( '@stdlib/stats-iter-sumabs2' );
+itersumabs2 = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-iter-sumabs2@umd/bundle.js' )
+```
+
+To include the bundle in a webpage,
+
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-iter-sumabs2@umd/bundle.js"></script>
+```
+
+If no recognized module system is present, access bundle contents via the global scope:
+
+```html
+<script type="text/javascript">
+(function () {
+    window.itersumabs2;
+})();
+</script>
 ```
 
 #### itersumabs2( iterator )
@@ -107,9 +109,14 @@ var s = itersumabs2( arr );
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var runif = require( '@stdlib/random-iter-uniform' );
-var itersumabs2 = require( '@stdlib/stats-iter-sumabs2' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-iter-uniform@umd/bundle.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-iter-sumabs2@umd/bundle.js"></script>
+<script type="text/javascript">
+(function () {
 
 // Create an iterator for generating uniformly distributed pseudorandom numbers:
 var rand = runif( -10.0, 10.0, {
@@ -122,6 +129,11 @@ var s = itersumabs2( rand );
 // returns <number>
 
 console.log( 'sumabs2: %d.', s );
+
+})();
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -225,11 +237,11 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/stats/iter/meanabs2]: https://github.com/stdlib-js/stats-iter-meanabs2
+[@stdlib/stats/iter/meanabs2]: https://github.com/stdlib-js/stats-iter-meanabs2/tree/umd
 
-[@stdlib/stats/iter/msumabs2]: https://github.com/stdlib-js/stats-iter-msumabs2
+[@stdlib/stats/iter/msumabs2]: https://github.com/stdlib-js/stats-iter-msumabs2/tree/umd
 
-[@stdlib/stats/iter/sumabs]: https://github.com/stdlib-js/stats-iter-sumabs
+[@stdlib/stats/iter/sumabs]: https://github.com/stdlib-js/stats-iter-sumabs/tree/umd
 
 <!-- </related-links> -->
 
