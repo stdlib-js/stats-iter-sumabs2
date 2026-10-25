@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2019 The Stdlib Authors.
@@ -16,23 +16,21 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var isIteratorLike = require( '@stdlib/assert-is-iterator-like' );
-var incrsumabs2 = require( '@stdlib/stats-incr-sumabs2' );
-var format = require( '@stdlib/error-tools-fmtprodmsg' );
-
-
-// MAIN //
+import { Iterator } from '@stdlib/types/iter';
 
 /**
 * Computes the sum of squared absolute values for all iterated values.
 *
-* @param {Iterator} iterator - input iterator
-* @throws {TypeError} must provide an iterator
-* @returns {(number|null)} sum of squared absolute values
+* ## Notes
+*
+* -   For iterators which can generate many values or which may output large numbers, care should be taken to prevent overflow.
+*
+* @param iterator - input iterator
+* @returns sum of squared absolute values
 *
 * @example
 * var runif = require( '@stdlib/random-iter-uniform' );
@@ -41,31 +39,12 @@ var format = require( '@stdlib/error-tools-fmtprodmsg' );
 *     'iter': 100
 * });
 *
-* var s = itersumabs2( rand );
+* var v = itersumabs2( rand );
 * // returns <number>
 */
-function itersumabs2( iterator ) {
-	var acc;
-	var v;
-	if ( !isIteratorLike( iterator ) ) {
-		throw new TypeError( format( '1LV3w', iterator ) );
-	}
-	acc = incrsumabs2();
-	while ( true ) {
-		v = iterator.next();
-		if ( v.done ) {
-			break;
-		}
-		if ( typeof v.value === 'number' ) {
-			acc( v.value );
-		} else {
-			acc( NaN );
-		}
-	}
-	return acc();
-}
+declare function itersumabs2( iterator: Iterator ): number | null;
 
 
 // EXPORTS //
 
-module.exports = itersumabs2;
+export = itersumabs2;
